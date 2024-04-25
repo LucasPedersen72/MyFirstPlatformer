@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var bullet = preload("res://player/bullet.tscn")
-
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var muzzle : Marker2D = $Muzzle
+@onready var sword_hitbox = $Sword_Hitbox
+@onready var timer_sword_hitbox = $Timer_sword_hitbox
+
 
 @export var GRAVITY : int = 1000
 
@@ -15,24 +15,19 @@ var bullet = preload("res://player/bullet.tscn")
 @export var JUMP_HORIZONTAL : int = 1000
 @export var MAX_JUMP_HORIZONTAL_SPEED : int = 300
 
-enum State { Idle, Running, Jumping, Shooting }
+enum State { Idle, Running, Jumping, attacking }
 
 var current_state : State
-var muzzle_position
 
 func _ready():
 	current_state = State.Idle
-	muzzle_position = muzzle.position
+	sword_hitbox.disabled = true
 
 func _physics_process(delta : float):
 	player_falling(delta)
 	player_idle(delta)
 	player_run(delta)
 	player_jump(delta)
-	
-	player_muzzle_position()
-	player_shooting(delta)
-	
 	
 	move_and_slide()
 	
@@ -81,35 +76,27 @@ func player_jump(delta : float):
 	if !is_on_floor() and current_state == State.Jumping:
 		velocity.x += direction * JUMP_HORIZONTAL * delta
 		velocity.x = clamp(velocity.x, -MAX_JUMP_HORIZONTAL_SPEED, MAX_JUMP_HORIZONTAL_SPEED)
-
-func player_shooting(delta : float):
-	var direction = input_movement()
-	
-	if direction != 0 and Input.is_action_just_pressed("shoot"):
-		var bullet_instance = bullet.instantiate() as Node2D
-		bullet_instance.direction = direction
-		bullet_instance.global_position = muzzle.global_position
-		get_parent().add_child(bullet_instance)
 		
-		current_state = State.Shooting 
-
-func player_muzzle_position():
-	var direction = input_movement()
-	
-	if direction > 0:
-		muzzle.position.x = muzzle_position.x
-	elif direction < 0:
-		muzzle.position.x = -muzzle_position.x
+func player_attack():
+	if Input.is_action_just_pressed("attack"):
+		sword_hitbox.disabled = false
+		timer_sword_hitbox.start()
+		current_state = State.attacking
+		
+func _on_timer_sword_hitbox_timeout():
+	sword_hitbox.disabled = true
 
 func player_animations():
 	if current_state == State.Idle:
 		animated_sprite_2d.play("Idle")
 
-	elif current_state == State.Running and animated_sprite_2d.animation != "Run_shoot":
+	elif current_state == State.Running:
 		animated_sprite_2d.play("Running")
 		
 	elif current_state == State.Jumping:
 		animated_sprite_2d.play("Jumping")
 		
-	elif current_state == State.Shooting:
-		animated_sprite_2d.play("Run_shoot")
+	elif current_state == State.attacking:
+		animated_sprite_2d.play("Attack_no_movement")
+
+

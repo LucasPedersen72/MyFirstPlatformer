@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpakh8p5oufm7"]
 
 [ext_resource type="Texture2D" uid="uid://h6phq5mgv5i3" path="res://warped-files/PNG/environment/layers/tilesets.png" id="1_c6ci7"]
-[ext_resource type="PackedScene" uid="uid://tdns6ojp06ks" path="res://player/player.tscn" id="2_1hsb8"]
 [ext_resource type="Texture2D" uid="uid://ivstd4soy0c3" path="res://warped-files/PNG/environment/layers/props.png" id="2_ng4o4"]
 [ext_resource type="Texture2D" uid="uid://15njutxp618j" path="res://warped-files/PNG/environment/layers/walls.png" id="3_7ob0i"]
+[ext_resource type="PackedScene" uid="uid://tdns6ojp06ks" path="res://player/SpaceWoman/SpaceWoman.tscn" id="4_i0wle"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_errce"]
 texture = ExtResource("1_c6ci7")
@@ -671,7 +671,7 @@ layer_2/name = "Foreground"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 
-[node name="Player" parent="." instance=ExtResource("2_1hsb8")]
+[node name="Player" parent="." instance=ExtResource("4_i0wle")]
 position = Vector2(27, -29)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
