@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dpakh8p5oufm7" path="res://Levels/BaseLevel.tscn" id="1_vyfl0"]
 [ext_resource type="PackedScene" uid="uid://cc2la8patlw4r" path="res://background/parallax_background.tscn" id="2_2f514"]
-[ext_resource type="PackedScene" uid="uid://bg2re5plbvmap" path="res://player/Knight/knight_player.tscn" id="3_yx1pj"]
+[ext_resource type="Script" path="res://Levels/Spawn.gd" id="2_danjf"]
 
 [node name="Level1" instance=ExtResource("1_vyfl0")]
+script = ExtResource("2_danjf")
 
 [node name="ParallaxBackground" parent="." index="0" instance=ExtResource("2_2f514")]
 
@@ -26,7 +27,7 @@ layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array(-262139, 65536, 6, -196603, 65536, 7, -262128, 65536, 6, -196592, 65536, 7, -262138, 196608, 6, -196602, 196608, 7, -262137, 262144, 6, -196601, 262144, 7)
 
 [node name="Player" parent="." index="3"]
-position = Vector2(56, -64)
+position = Vector2(64, -64)
 MAX_HORIZONTAL_SPEED = 200
 JUMP = -250
 MAX_JUMP_HORIZONTAL_SPEED = 250
@@ -38,6 +39,3 @@ limit_right = 1000
 limit_bottom = 160
 limit_smoothed = true
 editor_draw_limits = true
-
-[node name="Knight_Player" parent="." index="4" instance=ExtResource("3_yx1pj")]
-position = Vector2(184, -104)
