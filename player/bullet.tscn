@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dltvwitpekoer"]
 
-[ext_resource type="Texture2D" uid="uid://b72y6qcaxgvhc" path="res://warped-files/PNG/spritesheets/Fx/shot.png" id="1_u0d8b"]
+[ext_resource type="Texture2D" uid="uid://b72y6qcaxgvhc" path="res://UndermarkenBiome/PNG/spritesheets/Fx/shot.png" id="1_wuvtn"]
 [ext_resource type="Script" path="res://player/bullet.gd" id="2_m6ou1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rjnl"]
-atlas = ExtResource("1_u0d8b")
+atlas = ExtResource("1_wuvtn")
 region = Rect2(0, 0, 6, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrbth"]
-atlas = ExtResource("1_u0d8b")
+atlas = ExtResource("1_wuvtn")
 region = Rect2(6, 0, 6, 4)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tkta"]

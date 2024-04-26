@@ -62,6 +62,8 @@ attack={
 
 [layer_names]
 
+2d_render/layer_1="Ground"
+2d_render/layer_2="Player"
 2d_physics/layer_1="GROUND"
 2d_physics/layer_2="PLAYER"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc2la8patlw4r"]
 
-[ext_resource type="Texture2D" uid="uid://svpuagfjp527" path="res://warped-files/PNG/environment/layers/background.png" id="1_qsi3y"]
-[ext_resource type="Texture2D" uid="uid://1xgqgc1xvj5j" path="res://warped-files/PNG/environment/layers/middleground.png" id="2_pfvgd"]
+[ext_resource type="Texture2D" uid="uid://svpuagfjp527" path="res://UndermarkenBiome/PNG/environment/layers/background.png" id="1_qsi3y"]
+[ext_resource type="Texture2D" uid="uid://1xgqgc1xvj5j" path="res://UndermarkenBiome/PNG/environment/layers/middleground.png" id="2_pfvgd"]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
 offset = Vector2(0, -208)
