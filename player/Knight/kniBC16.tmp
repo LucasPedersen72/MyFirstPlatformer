@@ -236,8 +236,11 @@ texture_filter = 1
 position = Vector2(7, 0)
 scale = Vector2(0.8125, 1)
 sprite_frames = SubResource("SpriteFrames_8i6hd")
-animation = &"Idle"
+animation = &"Attack_no_movement"
 autoplay = "Idle"
+frame = 3
+frame_progress = 1.0
+flip_h = true
 
 [node name="Player_Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(3, 20)
@@ -291,5 +294,5 @@ inactive_update_mode = 0
 [node name="PhantomCameraHost" type="Node" parent="PhantomCamera2D/Camera2D"]
 script = ExtResource("7_pu1en")
 
-[connection signal="timeout" from="Timer_sword_hitbox_right" to="." method="_on_timer_sword_hitbox_right_timeout"]
-[connection signal="timeout" from="Timer_sword_hitbox_left" to="." method="_on_timer_sword_hitbox_left_timeout"]
+[connection signal="timeout" from="Timer_sword_hitbox_right" to="." method="_on_timer_sword_hitbox_timeout"]
+[connection signal="timeout" from="Timer_sword_hitbox_left" to="." method="_on_timer_sword_hitbox_timeout"]

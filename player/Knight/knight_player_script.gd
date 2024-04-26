@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var sword_hitbox = $Sword_Hitbox
-@onready var timer_sword_hitbox = $Timer_sword_hitbox
+@onready var timer_sword_hitbox_right = $Timer_sword_hitbox_right
+@onready var timer_sword_hitbox_left = $Timer_sword_hitbox_left
 
 
 
@@ -16,13 +17,15 @@ extends CharacterBody2D
 @export var JUMP_HORIZONTAL : int = 1000
 @export var MAX_JUMP_HORIZONTAL_SPEED : int = 300
 
-enum State { Idle, Running, Jumping, Attacking, Falling }
+enum State { Idle, Running, Jumping, Attacking, Falling, Attacking_moving }
 
 var current_state : State
+var facing_right : bool
 
 func _ready():
 	current_state = State.Idle
-	$Sword_Hitbox/CollisionShape2D.disabled = true
+	$Sword_Hitbox/CollisionShape2D_right.disabled = true
+	$Sword_Hitbox/CollisionShape2D2_left.disabled = true
 
 func _physics_process(delta : float):
 	player_falling(delta)
@@ -64,11 +67,16 @@ func player_run(delta : float):
 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SLOW_DOWN_SPEED * delta)
-
-	if direction != 0:
+	
+	if direction != 0 && current_state != State.Attacking:
 		current_state = State.Running
 		print("state: ", State.keys()[current_state])
 		animated_sprite_2d.flip_h = false if direction > 0 else true
+
+	if  animated_sprite_2d.flip_h == false:
+		facing_right = true
+	else:
+		facing_right = false
 	
 func player_jump(delta : float):
 	var direction = input_movement()
@@ -85,17 +93,42 @@ func player_jump(delta : float):
 		current_state = State.Idle
 		
 func player_attack(delta : float):
-	if Input.is_action_just_pressed("attack"):
-		$Sword_Hitbox/CollisionShape2D.disabled = false
-		timer_sword_hitbox.start()
+	var direction = input_movement()
+	if Input.is_action_just_pressed("attack") && direction == 0 && facing_right == true:
+		$Sword_Hitbox/CollisionShape2D_right.disabled = false
+		timer_sword_hitbox_right.start()
 		current_state = State.Attacking
 		animated_sprite_2d.animation = "Attack_no_movement"
 		print("state: " + State.keys()[current_state])
 		
-
+	elif Input.is_action_just_pressed("attack") && direction == 0 && facing_right == false:
+		$Sword_Hitbox/CollisionShape2D2_left.disabled = false
+		timer_sword_hitbox_left.start()
+		current_state = State.Attacking
+		animated_sprite_2d.animation = "Attack_no_movement"
+		print("state: " + State.keys()[current_state])
 	
-func _on_timer_sword_hitbox_timeout():
-	$Sword_Hitbox/CollisionShape2D.disabled = true
+	elif Input.is_action_just_pressed("attack") && direction > 0:
+		$Sword_Hitbox/CollisionShape2D_right.disabled = false
+		timer_sword_hitbox_right.start()
+		current_state = State.Attacking
+		animated_sprite_2d.animation = "Attack_no_movement"
+		print("state: " + State.keys()[current_state])
+
+	elif Input.is_action_just_pressed("attack") && direction < 0:
+		$Sword_Hitbox/CollisionShape2D2_left.disabled = false
+		timer_sword_hitbox_left.start()
+		current_state = State.Attacking
+		animated_sprite_2d.animation = "Attack_no_movement"
+		print("state: " + State.keys()[current_state])
+	
+func _on_timer_sword_hitbox_right_timeout():
+	$Sword_Hitbox/CollisionShape2D_right.disabled = true
+	current_state = State.Idle
+
+
+func _on_timer_sword_hitbox_left_timeout():
+	$Sword_Hitbox/CollisionShape2D2_left.disabled = true
 	current_state = State.Idle
 
 func player_animations():
@@ -108,5 +141,8 @@ func player_animations():
 		
 	elif current_state == State.Jumping:
 		animated_sprite_2d.play("Jumping")
+
+
+
 
 
