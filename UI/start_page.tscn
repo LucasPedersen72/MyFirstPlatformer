@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1i70g38wi3g4"]
+[gd_scene load_steps=11 format=3 uid="uid://1i70g38wi3g4"]
 
 [ext_resource type="Script" path="res://UI/start_page.gd" id="1_3she4"]
 [ext_resource type="Texture2D" uid="uid://bh1fhfcnhwlvw" path="res://player/SpaceWoman/player-idle-3-export-no-outline.png" id="1_4jro4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bylnqxc2l4ukx" path="res://background/MainMenuBackground/background_layer_2.png" id="4_li13n"]
 [ext_resource type="Texture2D" uid="uid://ccfh3yvargxeq" path="res://player/Knight/Idle-export.png" id="4_tywbu"]
 [ext_resource type="Texture2D" uid="uid://dyupau52ockp3" path="res://background/MainMenuBackground/background_layer_3.png" id="5_hxv22"]
+[ext_resource type="Theme" uid="uid://c6gu8naksfhex" path="res://Font/Crang.tres" id="10_qwrlc"]
 
 [node name="Start_Page" type="Control"]
 layout_mode = 3
@@ -28,6 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ParallaxLayer" type="ParallaxBackground" parent="TextureRect"]
+scroll_base_scale = Vector2(0.9, 1)
 script = ExtResource("2_47u5m")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="TextureRect/ParallaxLayer"]
@@ -86,13 +88,32 @@ texture_focused = ExtResource("2_tulln")
 stretch_mode = 0
 
 [node name="TextEdit" type="TextEdit" parent="."]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 16.0
-offset_right = 304.0
-offset_bottom = 80.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_top = 11.0
+offset_right = 75.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme = ExtResource("10_qwrlc")
 text = "The Most Epic
 Platformer"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_top = 97.0
+offset_right = 41.5
+offset_bottom = 122.0
+grow_horizontal = 2
+theme = ExtResource("10_qwrlc")
+text = "PLAY"
+
 [connection signal="pressed" from="Panel/btn_Knight_Charater" to="." method="_on_btn_knight_charater_pressed"]
 [connection signal="pressed" from="Panel/btn_SpaceWoman_Character" to="." method="_on_btn_space_woman_character_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
