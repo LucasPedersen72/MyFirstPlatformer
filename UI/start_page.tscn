@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://1i70g38wi3g4"]
+[gd_scene load_steps=10 format=3 uid="uid://1i70g38wi3g4"]
 
 [ext_resource type="Script" path="res://UI/start_page.gd" id="1_3she4"]
 [ext_resource type="Texture2D" uid="uid://bh1fhfcnhwlvw" path="res://player/SpaceWoman/player-idle-3-export-no-outline.png" id="1_4jro4"]
-[ext_resource type="Script" path="res://UI/ParallaxLayerMainMenu.gd" id="2_47u5m"]
 [ext_resource type="Texture2D" uid="uid://smxt255uxdve" path="res://player/SpaceWoman/player-idle-3-export.png" id="2_tulln"]
 [ext_resource type="Texture2D" uid="uid://c3fyh5ahew5pq" path="res://background/MainMenuBackground/background_layer_1.png" id="3_j4ivd"]
 [ext_resource type="Texture2D" uid="uid://flbx6ccthuga" path="res://player/Knight/Idle-export-no-outline.png" id="3_kh2o1"]
@@ -30,7 +29,6 @@ grow_vertical = 2
 
 [node name="ParallaxLayer" type="ParallaxBackground" parent="TextureRect"]
 scroll_base_scale = Vector2(0.9, 1)
-script = ExtResource("2_47u5m")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="TextureRect/ParallaxLayer"]
 

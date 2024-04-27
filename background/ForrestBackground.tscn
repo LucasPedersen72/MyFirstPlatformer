@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://gx62f4tv21w2"]
+[gd_scene load_steps=4 format=3 uid="uid://gx62f4tv21w2"]
 
-[ext_resource type="Script" path="res://UI/ParallaxLayerMainMenu.gd" id="1_xr268"]
 [ext_resource type="Texture2D" uid="uid://c3fyh5ahew5pq" path="res://background/MainMenuBackground/background_layer_1.png" id="2_2gnk3"]
 [ext_resource type="Texture2D" uid="uid://bylnqxc2l4ukx" path="res://background/MainMenuBackground/background_layer_2.png" id="3_1wa6f"]
 [ext_resource type="Texture2D" uid="uid://dyupau52ockp3" path="res://background/MainMenuBackground/background_layer_3.png" id="4_qk6hp"]
 
 [node name="ParallaxLayer" type="ParallaxBackground"]
 scroll_base_scale = Vector2(0.9, 1)
-script = ExtResource("1_xr268")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(0, -270)

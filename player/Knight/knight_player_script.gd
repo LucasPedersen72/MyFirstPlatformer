@@ -17,10 +17,11 @@ extends CharacterBody2D
 @export var JUMP_HORIZONTAL : int = 1000
 @export var MAX_JUMP_HORIZONTAL_SPEED : int = 300
 
-enum State { Idle, Running, Jumping, Attacking, Falling, Attacking_moving }
+enum State { Idle, Running, Jumping, Attacking, Falling }
 
 var current_state : State
 var facing_right : bool
+
 
 func _ready():
 	current_state = State.Idle
@@ -50,7 +51,7 @@ func player_falling(delta : float):
 func player_idle(delta : float):
 	if is_on_floor() && player_attack(delta) == false:
 		current_state = State.Idle
-		print("state: ", State.keys()[current_state])
+		print("state: ", State.keys()[current_state]) 
 	elif is_on_floor() && Input.is_action_just_released("move_right") or Input.is_action_just_released("move_left"):
 		current_state = State.Idle
 		pass
@@ -58,9 +59,7 @@ func player_idle(delta : float):
 func player_run(delta : float):
 	if !is_on_floor():
 		return
-
 	var direction = input_movement()
-
 	if direction:
 		velocity.x += direction * SPEED * delta
 		velocity.x = clamp(velocity.x , -MAX_HORIZONTAL_SPEED, MAX_HORIZONTAL_SPEED)
@@ -85,7 +84,7 @@ func player_jump(delta : float):
 		velocity.y = JUMP
 		current_state = State.Jumping
 		
-	if !is_on_floor() and current_state == State.Jumping:
+	if !is_on_floor() && current_state == State.Jumping:
 		velocity.x += direction * JUMP_HORIZONTAL * delta
 		velocity.x = clamp(velocity.x, -MAX_JUMP_HORIZONTAL_SPEED, MAX_JUMP_HORIZONTAL_SPEED)
 		
@@ -132,13 +131,12 @@ func _on_timer_sword_hitbox_left_timeout():
 	current_state = State.Idle
 
 func player_animations():
-	var direction = input_movement()
 	if current_state == State.Idle:
 		animated_sprite_2d.play("Idle")
 
 	elif current_state == State.Running:
 		animated_sprite_2d.play("Running")
-		
+
 	elif current_state == State.Jumping:
 		animated_sprite_2d.play("Jumping")
 

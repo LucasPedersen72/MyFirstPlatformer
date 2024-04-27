@@ -1345,5 +1345,6 @@ layer_3/tile_data = PackedInt32Array()
 
 [node name="Knight_Player" parent="." instance=ExtResource("12_udpf2")]
 position = Vector2(51, -72)
+floor_constant_speed = true
 
 [editable path="ParallaxLayer"]
