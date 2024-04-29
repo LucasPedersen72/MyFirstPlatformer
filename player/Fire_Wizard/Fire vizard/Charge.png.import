@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6sal4t7ptcqy"
-path="res://.godot/imported/player-idle.png-8d7cf71ad55c4e5f96991ae488b9e759.ctex"
+uid="uid://by4ghua870j2"
+path="res://.godot/imported/Charge.png-017e60e57a4735cd0cf0ef67aee666ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/SpaceWoman/player-idle.png"
-dest_files=["res://.godot/imported/player-idle.png-8d7cf71ad55c4e5f96991ae488b9e759.ctex"]
+source_file="res://player/Fire_Wizard/Fire vizard/Charge.png"
+dest_files=["res://.godot/imported/Charge.png-017e60e57a4735cd0cf0ef67aee666ce.ctex"]
 
 [params]
 

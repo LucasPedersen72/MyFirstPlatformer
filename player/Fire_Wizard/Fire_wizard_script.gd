@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var bullet = preload("res://player/bullet.tscn")
+const FIRE_BALL = preload("res://player/Fire_Ball.tscn")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle : Marker2D = $Muzzle
@@ -86,10 +86,10 @@ func player_shooting(delta : float):
 	var direction = input_movement()
 	
 	if direction != 0 and Input.is_action_just_pressed("attack"):
-		var bullet_instance = bullet.instantiate() as Node2D
-		bullet_instance.direction = direction
-		bullet_instance.global_position = muzzle.global_position
-		get_parent().add_child(bullet_instance)
+		var Fire_Ball_instance = FIRE_BALL.instantiate() as Node2D
+		Fire_Ball_instance.direction = direction
+		Fire_Ball_instance.global_position = muzzle.global_position
+		get_parent().add_child(Fire_Ball_instance)
 		
 		current_state = State.Shooting 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh1fhfcnhwlvw"
-path="res://.godot/imported/player-idle-3-export-no-outline.png-2a2be47e81260ffab7349f5e7d6f0eb3.ctex"
+uid="uid://bftuwt7ks1kjy"
+path="res://.godot/imported/Dead.png-f90a80a914b937008d386b2671fd6505.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/SpaceWoman/player-idle-3-export-no-outline.png"
-dest_files=["res://.godot/imported/player-idle-3-export-no-outline.png-2a2be47e81260ffab7349f5e7d6f0eb3.ctex"]
+source_file="res://player/Fire_Wizard/Fire vizard/Dead.png"
+dest_files=["res://.godot/imported/Dead.png-f90a80a914b937008d386b2671fd6505.ctex"]
 
 [params]
 
