@@ -227,7 +227,10 @@ size = Vector2(34, 31)
 [node name="Knight_Player" type="CharacterBody2D"]
 position = Vector2(5, -40)
 script = ExtResource("1_mpjy2")
+GRAVITY = 1250
+MAX_HORIZONTAL_SPEED = 250
 SLOW_DOWN_SPEED = 10000
+MAX_JUMP_HORIZONTAL_SPEED = 200
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
