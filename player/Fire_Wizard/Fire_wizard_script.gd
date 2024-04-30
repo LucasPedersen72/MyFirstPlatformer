@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const FIRE_BALL = preload("res://player/Fire_Ball.tscn")
 
+@onready var timer = $Timer
+@onready var collision_shape_2d = $CollisionShape2D
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle : Marker2D = $Muzzle
 
@@ -19,6 +22,7 @@ enum State { Idle, Running, Jumping, Shooting }
 
 var current_state : State
 var muzzle_position
+var facing_right : bool
 
 func _ready():
 	current_state = State.Idle
@@ -48,7 +52,7 @@ func player_falling(delta : float):
 		
 		
 func player_idle(delta : float):
-	if is_on_floor():
+	if is_on_floor() && current_state != State.Shooting:
 		current_state = State.Idle
 	print("state: ", State.keys()[current_state])
 		
@@ -70,7 +74,13 @@ func player_run(delta : float):
 		print("state: ", State.keys()[current_state])
 		animated_sprite_2d.flip_h = false if direction > 0 else true
 		
-	
+	if animated_sprite_2d.flip_h == true:
+		collision_shape_2d.position.x = 16
+		facing_right = false
+	else:
+		collision_shape_2d.position.x = 0
+		facing_right = true
+
 func player_jump(delta : float):
 	var direction = input_movement()
 	print("state: ", State.keys()[current_state])
@@ -84,14 +94,30 @@ func player_jump(delta : float):
 
 func player_shooting(delta : float):
 	var direction = input_movement()
-	
-	if direction != 0 and Input.is_action_just_pressed("attack"):
-		var Fire_Ball_instance = FIRE_BALL.instantiate() as Node2D
+	var Fire_Ball_instance = FIRE_BALL.instantiate() as Node2D
+	if Input.is_action_just_pressed("attack"):
 		Fire_Ball_instance.direction = direction
 		Fire_Ball_instance.global_position = muzzle.global_position
 		get_parent().add_child(Fire_Ball_instance)
+		current_state = State.Shooting
+		animated_sprite_2d.play("Run_shoot")
 		
-		current_state = State.Shooting 
+	
+	if direction == 0 && Input.is_action_just_pressed("attack") && facing_right == true:
+		Fire_Ball_instance.direction = 1
+		current_state = State.Shooting
+		animated_sprite_2d.play("Run_shoot")
+		timer.start()
+	if direction == 0 && Input.is_action_just_pressed("attack") && facing_right == false:
+		Fire_Ball_instance.direction = -1
+		current_state = State.Shooting
+		animated_sprite_2d.play("Run_shoot")
+		timer.start()
+		
+
+func _on_timer_timeout():
+	current_state = State.Idle
+
 
 func player_muzzle_position():
 	var direction = input_movement()
@@ -111,5 +137,7 @@ func player_animations():
 	elif current_state == State.Jumping:
 		animated_sprite_2d.play("Jumping")
 		
-	elif current_state == State.Shooting:
-		animated_sprite_2d.play("Run_shoot")
+	#elif current_state == State.Shooting:
+		#animated_sprite_2d.play("Run_shoot")
+
+

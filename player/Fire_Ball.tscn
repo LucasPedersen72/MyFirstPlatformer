@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dltvwitpekoer"]
+[gd_scene load_steps=16 format=3 uid="uid://dltvwitpekoer"]
 
 [ext_resource type="Texture2D" uid="uid://by4ghua870j2" path="res://player/Fire_Wizard/Fire vizard/Charge.png" id="1_sxypf"]
 [ext_resource type="Script" path="res://player/Fire_Ball.gd" id="2_nf6b4"]
@@ -23,6 +23,34 @@ region = Rect2(207, 0, 69, 64)
 atlas = ExtResource("1_sxypf")
 region = Rect2(276, 0, 69, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h3x6"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3geo7"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q64jg"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv4lv"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu0pb"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouups"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk45k"]
+atlas = ExtResource("1_sxypf")
+region = Rect2(704, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tkta"]
 animations = [{
 "frames": [{
@@ -35,27 +63,48 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kmj6w")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_le138")
 }, {
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_55oid")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_1h3x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3geo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q64jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv4lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu0pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouups")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk45k")
 }],
 "loop": true,
 "name": &"shot",
 "speed": 10.0
 }]
 
-[node name="Bullet" type="AnimatedSprite2D"]
+[node name="Fire_Ball" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_1tkta")
 animation = &"shot"
 autoplay = "shot"
-frame = 1
-frame_progress = 0.888031
+frame = 4
+frame_progress = 0.04265
 script = ExtResource("2_nf6b4")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 0.9
 one_shot = true
 autostart = true
 

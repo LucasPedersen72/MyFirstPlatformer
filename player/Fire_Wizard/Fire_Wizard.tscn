@@ -225,19 +225,19 @@ height = 40.0
 texture_filter = 1
 collision_layer = 2
 script = ExtResource("1_h0io8")
+SPEED = 800
 SLOW_DOWN_SPEED = 10000
+JUMP_HORIZONTAL = 800
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(7, -39)
+position = Vector2(8, -39)
 scale = Vector2(0.601563, 0.601563)
 sprite_frames = SubResource("SpriteFrames_u1bvt")
-animation = &"Run_shoot"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 7
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -20)
+position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_1p7p4")
 
 [node name="Muzzle" type="Marker2D" parent="."]
@@ -247,3 +247,8 @@ position = Vector2(22, -29)
 position = Vector2(-1, -21)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
