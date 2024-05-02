@@ -54,7 +54,7 @@ func player_falling(delta : float):
 func player_idle(delta : float):
 	if is_on_floor() && current_state != State.Shooting:
 		current_state = State.Idle
-	print("state: ", State.keys()[current_state])
+	#print("state: ", State.keys()[current_state])
 		
 func player_run(delta : float):
 	if !is_on_floor():

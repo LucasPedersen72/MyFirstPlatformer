@@ -1,9 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://0gnutj84tbb3"]
+[gd_scene load_steps=24 format=3 uid="uid://0gnutj84tbb3"]
 
+[ext_resource type="Script" path="res://Levels/TheCity.gd" id="1_hwgcj"]
 [ext_resource type="PackedScene" uid="uid://gx62f4tv21w2" path="res://background/ForrestBackground.tscn" id="1_xirwi"]
+[ext_resource type="Texture2D" uid="uid://bivtop2gt6xok" path="res://oak_woods_v1.0/decorations/sign.png" id="2_045r7"]
 [ext_resource type="Texture2D" uid="uid://vfh6fjm73upb" path="res://oak_woods_v1.0/oak_woods_tileset.png" id="2_xn0a2"]
 [ext_resource type="Texture2D" uid="uid://brrjbmn5im74a" path="res://UndermarkenBiome/PNG/environment/props/gate-02.png" id="3_7mtof"]
-[ext_resource type="PackedScene" uid="uid://bg2re5plbvmap" path="res://player/Knight/knight_player.tscn" id="12_udpf2"]
+[ext_resource type="Texture2D" uid="uid://crg5pkbg63q8b" path="res://oak_woods_v1.0/decorations/lamp.png" id="4_v3n7t"]
+[ext_resource type="Texture2D" uid="uid://drahtlo5o4u1r" path="res://oak_woods_v1.0/decorations/fence_1.png" id="6_aceo6"]
+[ext_resource type="Texture2D" uid="uid://detioxvj2na2e" path="res://oak_woods_v1.0/decorations/Ab_shop.png" id="7_enwe8"]
+[ext_resource type="PackedScene" uid="uid://tdns6ojp06ks" path="res://player/Fire_Wizard/Fire_Wizard.tscn" id="9_scdfr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2x22"]
+texture = ExtResource("2_045r7")
+texture_region_size = Vector2i(22, 31)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgtdu"]
 texture = ExtResource("2_xn0a2")
@@ -1282,6 +1294,19 @@ texture = ExtResource("2_xn0a2")
 30:21/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 30:21/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v06r7"]
+texture = ExtResource("4_v3n7t")
+texture_region_size = Vector2i(22, 19)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7fibg"]
 texture = ExtResource("3_7mtof")
 0:0/0 = 0
@@ -1317,15 +1342,88 @@ texture = ExtResource("3_7mtof")
 2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -2.125, -8, -2.5, -2.875, -4, 2.5, -8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc4t7"]
+texture = ExtResource("6_aceo6")
+texture_region_size = Vector2i(18, 19)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSet" id="TileSet_suiri"]
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_tgtdu")
 sources/6 = SubResource("TileSetAtlasSource_7fibg")
+sources/1 = SubResource("TileSetAtlasSource_h2x22")
+sources/5 = SubResource("TileSetAtlasSource_v06r7")
+sources/7 = SubResource("TileSetAtlasSource_dc4t7")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw8fs"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(0, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbao6"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(118, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0iwc"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(236, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03xlx"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(354, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01fes"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(472, 0, 118, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvho6"]
+atlas = ExtResource("7_enwe8")
+region = Rect2(590, 0, 118, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pfpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw8fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbao6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0iwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03xlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01fes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvho6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxq68"]
+size = Vector2(20, 29)
+
+[node name="TheCity" type="Node2D"]
+script = ExtResource("1_hwgcj")
 
 [node name="ParallaxLayer" parent="." instance=ExtResource("1_xirwi")]
-scroll_offset = Vector2(577.867, 306.209)
+scroll_offset = Vector2(635.144, 274.115)
 scroll_base_scale = Vector2(1, 1.111)
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1335,7 +1433,7 @@ layer_0/name = "BackBackground"
 layer_0/z_index = -2
 layer_1/name = "Background"
 layer_1/z_index = -1
-layer_1/tile_data = PackedInt32Array(-327677, 6, 1610612737, -393213, 65542, 1610612737, -196605, 6, 1610612737, -262141, 65542, 1610612737, -131069, 65542, 1610612737, -327678, 6, 1610612737, -393214, 65542, 1610612737, -196606, 6, 1610612737, -262142, 65542, 1610612737, -131070, 65542, 1610612737, -327676, 6, 1610612737, -393212, 65542, 1610612737, -196604, 6, 1610612737, -262140, 65542, 1610612737, -131068, 65542, 1610612737, -65534, 1900547, 1, 2, 1900547, 2, 65538, 1900547, 1, 131074, 1900547, 2, 196610, 1900547, 1, 262146, 1900547, 2, 327682, 1900547, 1, 393218, 1900547, 2, 458754, 1900547, 1, 524290, 1900547, 2, 589826, 1900547, 1, 655362, 1900547, 2, -65533, 1966083, 1, 3, 1966083, 2, 65539, 1966083, 1, 131075, 1966083, 2, 196611, 1966083, 1, 262147, 1966083, 2, 327683, 1966083, 1, 393219, 1966083, 2, 458755, 1966083, 1, 524291, 1966083, 2, 589827, 1966083, 1, 655363, 1966083, 2, -65532, 1507331, 2, 4, 1507331, 2, 65540, 1507331, 2, 131076, 1507331, 2, 196612, 1507331, 2, 262148, 1507331, 2, 327684, 1507331, 2, 393220, 1507331, 2, 458756, 1507331, 2, 524292, 1507331, 2, 589828, 1507331, 2, 655364, 1507331, 2, 5, 131075, 1, 65541, 131075, 1, 131077, 131075, 1, 196613, 131075, 1, 6, 131075, 1, 65542, 131075, 1, 131078, 131075, 1, 196614, 131075, 1, 7, 131075, 1, 65543, 131075, 1, 131079, 131075, 1, 196615, 131075, 1, 8, 131075, 1, 65544, 131075, 1, 131080, 131075, 1, 196616, 131075, 1, 9, 131075, 1, 65545, 131075, 1, 131081, 131075, 1, 196617, 131075, 1, 10, 131075, 1, 65546, 131075, 1, 131082, 131075, 1, 196618, 131075, 1, 11, 131075, 1, 65547, 131075, 1, 131083, 131075, 1, 196619, 131075, 1, 12, 131075, 1, 65548, 131075, 1, 131084, 131075, 1, 196620, 131075, 1, 13, 131075, 1, 65549, 131075, 1, 131085, 131075, 1, 196621, 131075, 1, 14, 131075, 1, 65550, 131075, 1, 131086, 131075, 1, 196622, 131075, 1, 15, 131075, 1, 65551, 131075, 1, 131087, 131075, 1, 196623, 131075, 1, 16, 131075, 1, 65552, 131075, 1, 131088, 131075, 1, 196624, 131075, 1)
+layer_1/tile_data = PackedInt32Array(-327677, 6, 1610612737, -393213, 65542, 1610612737, -196605, 6, 1610612737, -262141, 65542, 1610612737, -131069, 65542, 1610612737, -327678, 6, 1610612737, -393214, 65542, 1610612737, -196606, 6, 1610612737, -262142, 65542, 1610612737, -131070, 65542, 1610612737, -327676, 6, 1610612737, -393212, 65542, 1610612737, -196604, 6, 1610612737, -262140, 65542, 1610612737, -131068, 65542, 1610612737, -65534, 1900547, 1, 2, 1900547, 2, 65538, 1900547, 1, 131074, 1900547, 2, 196610, 1900547, 1, 262146, 1900547, 2, 327682, 1900547, 1, 393218, 1900547, 2, 458754, 1900547, 1, 524290, 1900547, 2, 589826, 1900547, 1, 655362, 1900547, 2, -65533, 1966083, 1, 3, 1966083, 2, 65539, 1966083, 1, 131075, 1966083, 2, 196611, 1966083, 1, 262147, 1966083, 2, 327683, 1966083, 1, 393219, 1966083, 2, 458755, 1966083, 1, 524291, 1966083, 2, 589827, 1966083, 1, 655363, 1966083, 2, -65532, 1507331, 2, 4, 1507331, 2, 65540, 1507331, 2, 131076, 1507331, 2, 196612, 1507331, 2, 262148, 1507331, 2, 327684, 1507331, 2, 393220, 1507331, 2, 458756, 1507331, 2, 524292, 1507331, 2, 589828, 1507331, 2, 655364, 1507331, 2, 5, 131075, 1, 65541, 131075, 1, 131077, 131075, 1, 196613, 131075, 1, 6, 131075, 1, 65542, 131075, 1, 131078, 131075, 1, 196614, 131075, 1, 7, 131075, 1, 65543, 131075, 1, 131079, 131075, 1, 196615, 131075, 1, 8, 131075, 1, 65544, 131075, 1, 131080, 131075, 1, 196616, 131075, 1, 9, 131075, 1, 65545, 131075, 1, 131081, 131075, 1, 196617, 131075, 1, 10, 131075, 1, 65546, 131075, 1, 131082, 131075, 1, 196618, 131075, 1, 11, 131075, 1, 65547, 131075, 1, 131083, 131075, 1, 196619, 131075, 1, 12, 131075, 1, 65548, 131075, 1, 131084, 131075, 1, 196620, 131075, 1, 13, 131075, 1, 65549, 131075, 1, 131085, 131075, 1, 196621, 131075, 1, 14, 131075, 1, 65550, 131075, 1, 131086, 131075, 1, 196622, 131075, 1, 15, 131075, 1, 65551, 131075, 1, 131087, 131075, 1, 196623, 131075, 1, 16, 131075, 1, 65552, 131075, 1, 131088, 131075, 1, 196624, 131075, 1, -262136, 5, 0, -196600, 5, 1, -131064, 5, 2)
 layer_2/name = "Ground"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-458751, 131078, 1610612736, -393215, 65542, 1610612736, -327679, 6, 1610612736, -262143, 65542, 1610612736, -196607, 6, 1610612736, -131071, 65542, 1610612736, -458750, 131078, 1610612737, -393214, 131078, 1342177282, -131070, 131078, 1610612736, -458749, 131078, 1610612737, -393213, 131078, 1342177281, -131069, 131078, 1610612737, -458748, 131078, 1610612737, -393212, 131078, 1342177280, -131068, 131078, 1610612738, -458747, 131078, 1610612738, -393211, 65542, 1610612738, -65535, 3, 0, -65531, 262147, 0, -65530, 262147, 0, -65529, 262147, 0, -65528, 262147, 0, -65527, 196611, 0, -65526, 196611, 0, -65525, 131075, 0, -65524, 131075, 0, -65523, 131075, 0, -65522, 131075, 0, -65521, 131075, 0, -65520, 131075, 0, -65519, 327683, 0, 1, 3, 1, 65537, 3, 2, 131073, 3, 3, 196609, 3, 4, 262145, 3, 5, 17, 327683, 1, 65553, 327683, 2, 131089, 327683, 3, 196625, 327683, 4, 262149, 65539, 5, 262150, 131075, 5, 262151, 196611, 5, 262152, 262147, 5, 262153, 65539, 5, 262154, 131075, 5, 262155, 196611, 5, 262156, 262147, 5, 262157, 65539, 5, 262158, 131075, 5, 262159, 196611, 5, 262160, 262147, 5, 262161, 327683, 5)
@@ -1343,8 +1441,21 @@ layer_3/name = "Foreground"
 layer_3/z_index = 1
 layer_3/tile_data = PackedInt32Array()
 
-[node name="Knight_Player" parent="." instance=ExtResource("12_udpf2")]
-position = Vector2(51, -72)
-floor_constant_speed = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(213, -80)
+sprite_frames = SubResource("SpriteFrames_5pfpq")
+autoplay = "default"
+frame_progress = 0.695472
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="ab_shop_npc" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(0, 49.5)
+shape = SubResource("RectangleShape2D_uxq68")
+
+[node name="Fire_Wizard_player" parent="." instance=ExtResource("9_scdfr")]
+position = Vector2(98, -16)
+
+[connection signal="tree_entered" from="AnimatedSprite2D/Area2D/ab_shop_npc" to="." method="_on_ab_shop_npc_tree_entered"]
 
 [editable path="ParallaxLayer"]

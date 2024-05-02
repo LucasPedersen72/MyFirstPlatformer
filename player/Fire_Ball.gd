@@ -5,12 +5,11 @@ var bullet_speed : int = 300
 var direction : int
 
 func _physics_process(delta):
+	fire_ball_moving(delta)
+	
+func fire_ball_moving(delta):
 	move_local_x(direction * bullet_speed * delta)
 	
-	if direction < 0:
-		fire_ball.flip_h == true
-	else:
-		fire_ball.flip_h == false
-
+	
 func _on_timer_timeout():
 	queue_free()
