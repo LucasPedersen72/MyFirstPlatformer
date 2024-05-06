@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://db01i7232r6tf"]
+
+[ext_resource type="Texture2D" uid="uid://decvupcnq1hmv" path="res://npc/Girl Npc/Spreadsheet/idle and  alter/idle sheet-Sheet.png" id="1_5qj1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np5cl"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50w0f"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c1vk"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjbgq"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16oki"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqmyj"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nffvu"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7kmq"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_batyh"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxtnp"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm3xx"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(800, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85081"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(880, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmecq"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(960, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg7ck"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(1040, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1uql"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(1120, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8qo1"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(1200, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmaqm"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(1280, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p7af"]
+atlas = ExtResource("1_5qj1f")
+region = Rect2(1360, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qi4va"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np5cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50w0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c1vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjbgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16oki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqmyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nffvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7kmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_batyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxtnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qm3xx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85081")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmecq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg7ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1uql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8qo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmaqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p7af")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="GirlNpc" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qi4va")
+animation = &"idle"
+frame_progress = 0.522771
+flip_h = true
