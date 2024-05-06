@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db01i7232r6tf"]
+[gd_scene load_steps=22 format=3 uid="uid://db01i7232r6tf"]
 
 [ext_resource type="Texture2D" uid="uid://decvupcnq1hmv" path="res://npc/Girl Npc/Spreadsheet/idle and  alter/idle sheet-Sheet.png" id="1_5qj1f"]
 
@@ -136,10 +136,19 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlnf4"]
+radius = 29.0
+
 [node name="GirlNpc" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qi4va")
 animation = &"idle"
-frame_progress = 0.522771
+frame_progress = 0.0343856
 flip_h = true
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(12, 6)
+shape = SubResource("CircleShape2D_qlnf4")
