@@ -224,7 +224,7 @@ height = 40.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhm13"]
 size = Vector2(34, 31)
 
-[node name="Knight_Player" type="CharacterBody2D"]
+[node name="Knight_Player" type="CharacterBody2D" groups=["PLAYER"]]
 position = Vector2(5, -40)
 script = ExtResource("1_mpjy2")
 GRAVITY = 1250

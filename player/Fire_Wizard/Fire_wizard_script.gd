@@ -71,7 +71,7 @@ func player_run(delta : float):
 
 	if direction != 0:
 		current_state = State.Running
-		print("state: ", State.keys()[current_state])
+		#print("state: ", State.keys()[current_state])
 		animated_sprite_2d.flip_h = false if direction > 0 else true
 		
 	if animated_sprite_2d.flip_h == true:
@@ -83,7 +83,7 @@ func player_run(delta : float):
 
 func player_jump(delta : float):
 	var direction = input_movement()
-	print("state: ", State.keys()[current_state])
+	#print("state: ", State.keys()[current_state])
 	if Input.is_action_just_pressed("jump") && is_on_floor():
 		velocity.y = JUMP
 		current_state = State.Jumping

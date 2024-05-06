@@ -128,10 +128,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_u3321")
 }, {
-"duration": 1.0,
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_5vo7s")
 }, {
 "duration": 1.0,
@@ -157,7 +157,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jumping",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -221,9 +221,10 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1p7p4"]
 height = 40.0
 
-[node name="Fire_Wizard_player" type="CharacterBody2D"]
+[node name="Fire_Wizard_player" type="CharacterBody2D" groups=["PLAYER"]]
 texture_filter = 1
 collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_h0io8")
 SPEED = 800
 SLOW_DOWN_SPEED = 10000
@@ -233,8 +234,9 @@ JUMP_HORIZONTAL = 800
 position = Vector2(8, -39)
 scale = Vector2(0.601563, 0.601563)
 sprite_frames = SubResource("SpriteFrames_u1bvt")
-animation = &"Idle"
+animation = &"Jumping"
 autoplay = "Idle"
+frame_progress = 0.811756
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20)

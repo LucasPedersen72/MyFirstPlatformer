@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://8ov647v6tksf"]
+
+[ext_resource type="Texture2D" uid="uid://bw6fgwh22oal5" path="res://dialogue/diaogue-texture.png" id="1_567eh"]
+[ext_resource type="FontFile" uid="uid://dkti7yxadla24" path="res://Font/Crang.ttf" id="2_5r3mb"]
+[ext_resource type="Script" path="res://dialogue/dialogue_player.gd" id="2_py3vv"]
+
+[sub_resource type="Theme" id="Theme_7lexy"]
+default_font = ExtResource("2_5r3mb")
+
+[sub_resource type="Theme" id="Theme_q4cik"]
+default_font = ExtResource("2_5r3mb")
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_7lexy")
+script = ExtResource("2_py3vv")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 101.0
+offset_bottom = 42.0
+scale = Vector2(3, 3)
+texture = ExtResource("1_567eh")
+metadata/_edit_group_ = true
+
+[node name="name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 119.0
+offset_bottom = 24.0
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_q4cik")
+text = "name:
+"
+
+[node name="text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 12.0
+offset_right = 385.0
+offset_bottom = 107.0
+scale = Vector2(0.2, 0.2)
+text = "Chatting
+"

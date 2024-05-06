@@ -1,0 +1,15 @@
+[
+	{"name": "Girl", "text": "Hello there traveller!"},
+	{"name": "Girl", "text": "Are you here to meet the blacksmith perchanse?"},
+	{"name": "You", "text": "Actually, yes I am. Do you know where he is?"},
+	{"name": "Girl", "text": "Ofcourse I know where he, he's my father"},
+	{"name": "You", "text": "Oh, okay. Can i have some directions maybe?"},
+	{"name": "Girl", "text": "Go down the road to the right over all the dangerous obstacles and get past the big crash site."},
+	{"name": "Girl", "text": "You will then smell the beautiful scent of melted iron. That's my fathers forge!"},
+	{"name": "You", "text": "Okay, thank you ms ... whats you name?"},
+	{"name": "Blanchette", "text": "It's Blanchette and you're welcome sir..? "},
+	{"name": "You", "text": "Isolderick is my name. Have a frolic day ms Blanchette"},
+	{"name": "Blanchette", "text": "Same goes to you Isolderick"},
+	
+	
+]

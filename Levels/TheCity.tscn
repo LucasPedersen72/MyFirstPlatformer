@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://0gnutj84tbb3"]
+[gd_scene load_steps=25 format=3 uid="uid://0gnutj84tbb3"]
 
 [ext_resource type="Script" path="res://Levels/TheCity.gd" id="1_hwgcj"]
 [ext_resource type="PackedScene" uid="uid://gx62f4tv21w2" path="res://background/ForrestBackground.tscn" id="1_xirwi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://drahtlo5o4u1r" path="res://oak_woods_v1.0/decorations/fence_1.png" id="6_aceo6"]
 [ext_resource type="Texture2D" uid="uid://detioxvj2na2e" path="res://oak_woods_v1.0/decorations/Ab_shop.png" id="7_enwe8"]
 [ext_resource type="PackedScene" uid="uid://tdns6ojp06ks" path="res://player/Fire_Wizard/Fire_Wizard.tscn" id="9_scdfr"]
+[ext_resource type="PackedScene" uid="uid://db01i7232r6tf" path="res://npc/Girl Npc/girl_npc.tscn" id="10_mhgmk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_236ih"]
 texture = ExtResource("2_045r7")
@@ -1456,5 +1457,18 @@ frame_progress = 0.695472
 
 [node name="Fire_Wizard_player" parent="." instance=ExtResource("9_scdfr")]
 position = Vector2(98, -16)
+collision_mask = 9
+
+[node name="GirlNpc" parent="." node_paths=PackedStringArray("patrol_points") instance=ExtResource("10_mhgmk")]
+position = Vector2(221, -56)
+patrol_points = NodePath("PatrolPoints")
+
+[node name="PatrolPoints" type="Node2D" parent="GirlNpc"]
+
+[node name="Point1" type="Marker2D" parent="GirlNpc/PatrolPoints"]
+position = Vector2(-44.2857, 25.7143)
+
+[node name="Point2" type="Marker2D" parent="GirlNpc/PatrolPoints"]
+position = Vector2(51.4286, 25.7143)
 
 [editable path="ParallaxLayer"]
