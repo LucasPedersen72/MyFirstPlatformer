@@ -1457,6 +1457,4 @@ frame_progress = 0.695472
 [node name="Fire_Wizard_player" parent="." instance=ExtResource("9_scdfr")]
 position = Vector2(98, -16)
 
-[node name="Girl_npc" type="CharacterBody2D" parent="."]
-
 [editable path="ParallaxLayer"]
