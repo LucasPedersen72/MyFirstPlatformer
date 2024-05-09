@@ -18,33 +18,35 @@ offset_bottom = 40.0
 theme = SubResource("Theme_7lexy")
 script = ExtResource("2_py3vv")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="DialogueBackground" type="NinePatchRect" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 7.0
-offset_top = 4.0
-offset_right = 101.0
-offset_bottom = 42.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 97.0
+offset_bottom = 47.0
 scale = Vector2(3, 3)
 texture = ExtResource("1_567eh")
-metadata/_edit_group_ = true
 
-[node name="name" type="RichTextLabel" parent="NinePatchRect"]
+[node name="name" type="RichTextLabel" parent="DialogueBackground"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 16.0
-offset_top = 4.0
-offset_right = 119.0
-offset_bottom = 24.0
+offset_left = 14.6667
+offset_top = 5.33333
+offset_right = 117.667
+offset_bottom = 25.3333
 scale = Vector2(0.3, 0.3)
 theme = SubResource("Theme_q4cik")
 text = "name:
 "
 
-[node name="text" type="RichTextLabel" parent="NinePatchRect"]
+[node name="text" type="RichTextLabel" parent="DialogueBackground"]
+texture_filter = 2
 layout_mode = 0
 offset_left = 5.0
-offset_top = 12.0
-offset_right = 385.0
-offset_bottom = 107.0
-scale = Vector2(0.2, 0.2)
-text = "Chatting
+offset_top = 14.0
+offset_right = 283.0
+offset_bottom = 88.0
+scale = Vector2(0.3, 0.3)
+text = "Chatting...
 "

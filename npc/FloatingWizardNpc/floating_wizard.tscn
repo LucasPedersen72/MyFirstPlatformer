@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dy2o5d3yt8763"]
+
+[ext_resource type="Texture2D" uid="uid://uqyh2wsndalc" path="res://npc/FloatingWizardNpc/Spreadsheet/wizard idle.png" id="1_6hh2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3mw2"]
+atlas = ExtResource("1_6hh2m")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbq3d"]
+atlas = ExtResource("1_6hh2m")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idqts"]
+atlas = ExtResource("1_6hh2m")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hksbv"]
+atlas = ExtResource("1_6hh2m")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsrnq"]
+atlas = ExtResource("1_6hh2m")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfslx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3mw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbq3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idqts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hksbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsrnq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="FloatingWizard" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rfslx")
+frame_progress = 0.0052983
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="DetectionArea" type="Area2D" parent="."]

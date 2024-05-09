@@ -56,6 +56,7 @@ func _physics_process(delta : float):
 		can_walk = false
 		is_chatting = true
 		current_state = State.Idle
+		$Dialogue.start()
 		
 	move_and_slide()
 	
@@ -118,3 +119,8 @@ func _on_detection_area_body_entered(body):
 func _on_detection_area_body_exited(body):
 	if body.is_in_group("PLAYER"):
 		player_in_chat_zone = false
+
+
+func _on_dialogue_dialogue_finsished():
+	is_chatting = false
+	can_walk = true

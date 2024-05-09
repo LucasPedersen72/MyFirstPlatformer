@@ -338,7 +338,6 @@ show_behind_parent = true
 light_mask = 4
 visibility_layer = 4
 position = Vector2(12, 10)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_5mu8e")
 
 [node name="DetectionArea" type="Area2D" parent="."]
@@ -353,12 +352,13 @@ shape = SubResource("CircleShape2D_qlnf4")
 autostart = true
 
 [node name="Dialogue" parent="." instance=ExtResource("4_i4m2g")]
-offset_left = 10.0
-offset_top = -15.7143
-offset_right = 50.0
-offset_bottom = 24.2857
+offset_left = -127.143
+offset_top = -147.143
+offset_right = -87.1429
+offset_bottom = -107.143
 theme = SubResource("Theme_pva6k")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="dialogue_finsished" from="Dialogue" to="." method="_on_dialogue_dialogue_finsished"]
