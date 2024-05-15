@@ -27,6 +27,8 @@ func _ready():
 	current_state = State.Idle
 	$Sword_Hitbox/CollisionShape2D_right.disabled = true
 	$Sword_Hitbox/CollisionShape2D2_left.disabled = true
+	
+	GameManager.playerBody = self
 
 func _physics_process(delta : float):
 	player_falling(delta)
@@ -51,7 +53,7 @@ func player_falling(delta : float):
 func player_idle(delta : float):
 	if is_on_floor() && player_attack(delta) == false:
 		current_state = State.Idle
-		print("state: ", State.keys()[current_state]) 
+		#print("state: ", State.keys()[current_state]) 
 	elif is_on_floor() && Input.is_action_just_released("move_right") or Input.is_action_just_released("move_left"):
 		current_state = State.Idle
 		pass
@@ -69,7 +71,7 @@ func player_run(delta : float):
 	
 	if direction != 0 && current_state != State.Attacking:
 		current_state = State.Running
-		print("state: ", State.keys()[current_state])
+		#print("state: ", State.keys()[current_state])
 		animated_sprite_2d.flip_h = false if direction > 0 else true
 
 	if  animated_sprite_2d.flip_h == false:
@@ -79,7 +81,7 @@ func player_run(delta : float):
 	
 func player_jump(delta : float):
 	var direction = input_movement()
-	print("state: ", State.keys()[current_state])
+	#print("state: ", State.keys()[current_state])
 	if Input.is_action_just_pressed("jump") && is_on_floor():
 		velocity.y = JUMP
 		current_state = State.Jumping

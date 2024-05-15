@@ -27,6 +27,8 @@ var facing_right : bool
 func _ready():
 	current_state = State.Idle
 	muzzle_position = muzzle.position
+	
+	GameManager.playerBody = self
 
 func _physics_process(delta : float):
 	player_falling(delta)
@@ -137,7 +139,8 @@ func player_animations():
 	elif current_state == State.Jumping:
 		animated_sprite_2d.play("Jumping")
 		
-	#elif current_state == State.Shooting:
-		#animated_sprite_2d.play("Run_shoot")
+func death():
+	
+	pass
 
 

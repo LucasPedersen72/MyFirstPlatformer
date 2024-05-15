@@ -1,14 +1,16 @@
 [gd_scene load_steps=10 format=3 uid="uid://1i70g38wi3g4"]
 
 [ext_resource type="Script" path="res://UI/start_page.gd" id="1_3she4"]
-[ext_resource type="Texture2D" uid="uid://bh1fhfcnhwlvw" path="res://player/Fire_Wizard/player-idle-3-export-no-outline.png" id="1_4jro4"]
-[ext_resource type="Texture2D" uid="uid://smxt255uxdve" path="res://player/Fire_Wizard/player-idle-3-export.png" id="2_tulln"]
 [ext_resource type="Texture2D" uid="uid://c3fyh5ahew5pq" path="res://background/MainMenuBackground/background_layer_1.png" id="3_j4ivd"]
 [ext_resource type="Texture2D" uid="uid://flbx6ccthuga" path="res://player/Knight/Idle-export-no-outline.png" id="3_kh2o1"]
 [ext_resource type="Texture2D" uid="uid://bylnqxc2l4ukx" path="res://background/MainMenuBackground/background_layer_2.png" id="4_li13n"]
 [ext_resource type="Texture2D" uid="uid://ccfh3yvargxeq" path="res://player/Knight/Idle-export.png" id="4_tywbu"]
 [ext_resource type="Texture2D" uid="uid://dyupau52ockp3" path="res://background/MainMenuBackground/background_layer_3.png" id="5_hxv22"]
 [ext_resource type="Theme" uid="uid://c6gu8naksfhex" path="res://Font/Crang.tres" id="10_qwrlc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3qf2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6yk6"]
 
 [node name="Start_Page" type="Control"]
 layout_mode = 3
@@ -79,10 +81,10 @@ offset_left = 120.0
 offset_top = 8.0
 offset_right = 168.0
 offset_bottom = 109.0
-texture_normal = ExtResource("1_4jro4")
-texture_pressed = ExtResource("2_tulln")
-texture_hover = ExtResource("2_tulln")
-texture_focused = ExtResource("2_tulln")
+texture_normal = SubResource("CompressedTexture2D_o3qf2")
+texture_pressed = SubResource("CompressedTexture2D_a6yk6")
+texture_hover = SubResource("CompressedTexture2D_a6yk6")
+texture_focused = SubResource("CompressedTexture2D_a6yk6")
 stretch_mode = 0
 
 [node name="TextEdit" type="TextEdit" parent="."]

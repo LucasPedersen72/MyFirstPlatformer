@@ -227,7 +227,7 @@ size = Vector2(34, 31)
 [node name="Knight_Player" type="CharacterBody2D" groups=["PLAYER"]]
 position = Vector2(5, -40)
 collision_layer = 2
-collision_mask = 13
+collision_mask = 9
 script = ExtResource("1_mpjy2")
 GRAVITY = 1250
 MAX_HORIZONTAL_SPEED = 250

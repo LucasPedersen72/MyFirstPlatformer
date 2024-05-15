@@ -1,5 +1,4 @@
 extends Control
-@onready var dialogue_background = $DialogueBackground
 
 @export_file("*.json") var dialogue_file
 
@@ -9,24 +8,31 @@ var dialogue = []
 var current_dialogue_id = 0
 var dialogue_active : bool = false
 
+var npc
+
 func _ready():
-	dialogue_background.visible = false
+	$DialogueBackground.visible = false
 
 func start():
-	if dialogue_active == false:
+	if dialogue_active == true:
 		return
 	
-	dialogue_background.visible = true
+	$DialogueBackground.visible = true
 	dialogue_active = true
 	dialogue = load_dialogue()
 	current_dialogue_id = -1
 	next_script()
 	
 func load_dialogue():
-	var file = FileAccess.open("res://dialogue/girl_npc_dialogue.json", FileAccess.READ)
-	var content = JSON.parse_string(file.get_as_text())
-	return content
-	
+	if GameManager.talking_npc == "girl":
+		var file = FileAccess.open("res://dialogue/girl_npc_dialogue.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+		return content
+		
+	elif GameManager.talking_npc == "":
+		var file = FileAccess.open("res://dialogue/girl_npc_dialogue.json", FileAccess.READ)
+		var content = JSON.parse_string(file.get_as_text())
+
 func _input(event):
 	if !dialogue_active:
 		return
@@ -37,7 +43,7 @@ func next_script():
 	current_dialogue_id += 1
 	if current_dialogue_id >= len(dialogue):
 		dialogue_active = false
-		dialogue_background.visible = false
+		$DialogueBackground.visible = false
 		emit_signal("dialogue_finsished")
 		return
 		

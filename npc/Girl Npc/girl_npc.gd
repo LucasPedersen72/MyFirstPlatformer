@@ -51,12 +51,14 @@ func _physics_process(delta : float):
 	enemy_idle(delta)
 	enemy_walk(delta)
 	
-	if Input.is_action_just_pressed("interact") && player_in_chat_zone == true && !is_chatting:
+	if Input.is_action_just_pressed("interact") && player_in_chat_zone == true && is_chatting == false:
 		print("Is chatting")
 		can_walk = false
 		is_chatting = true
 		current_state = State.Idle
+		timer.stop()
 		$Dialogue.start()
+		GameManager.talking_npc = "girl"
 		
 	move_and_slide()
 	
@@ -124,3 +126,4 @@ func _on_detection_area_body_exited(body):
 func _on_dialogue_dialogue_finsished():
 	is_chatting = false
 	can_walk = true
+	timer.start()

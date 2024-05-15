@@ -16,9 +16,9 @@ func _ready():
 		pass
 	
 	if GameManager.character_id == null:
-		var Character1 = KNIGHT_PLAYER.instantiate()
-		add_child(Character1)
-		Character1.global_position = Vector2(100, -100)
+		var Character2 = FIRE_WIZARD.instantiate()
+		add_child(Character2)
+		Character2.global_position = Vector2(100, -100)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
