@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy6jvf4qwl808"]
+
+[ext_resource type="Texture2D" uid="uid://c0go44aaatrbu" path="res://Levels/TheCave/Background/background1.png" id="1_gq5gu"]
+[ext_resource type="Texture2D" uid="uid://wcmt2xdqxjgj" path="res://Levels/TheCave/Background/background2.png" id="2_5kkxd"]
+[ext_resource type="Texture2D" uid="uid://ci7p01mcxfc4v" path="res://Levels/TheCave/Background/background3.png" id="3_so8q3"]
+[ext_resource type="Texture2D" uid="uid://2wycyl2oaqdf" path="res://Levels/TheCave/Background/background4b.png" id="4_c3cjs"]
+
+[node name="CaveBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(480, -240)
+motion_mirroring = Vector2(960, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_gq5gu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("2_5kkxd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("3_so8q3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("4_c3cjs")

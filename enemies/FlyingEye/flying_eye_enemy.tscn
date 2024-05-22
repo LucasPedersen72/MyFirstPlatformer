@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://oibij8om4i1i"]
 
-[ext_resource type="Script" path="res://FlyingEyeEnemy.gd" id="1_41883"]
+[ext_resource type="Script" path="res://enemies/FlyingEye/FlyingEyeEnemy.gd" id="1_41883"]
 [ext_resource type="Texture2D" uid="uid://w2wmyxvn8yaj" path="res://enemies/FlyingEye/Flying eye/Attack.png" id="2_ivh27"]
 [ext_resource type="Texture2D" uid="uid://bwqctdpv6e7bv" path="res://enemies/FlyingEye/Flying eye/Death.png" id="3_elyeg"]
 [ext_resource type="Texture2D" uid="uid://5u6v5ennrco2" path="res://enemies/FlyingEye/Flying eye/Flight.png" id="4_yvbje"]
@@ -201,6 +201,8 @@ animations = [{
 radius = 17.0
 
 [node name="FlyingEyeEnemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_41883")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

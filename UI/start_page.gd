@@ -1,5 +1,5 @@
 extends Control
-const SPAWN_ISLAND = preload("res://Levels/spawn_island.tscn")
+const SPAWN_ISLAND = preload("res://Levels/Spawn_Island/spawn_island.tscn")
 
 func _ready():
 	pass # Replace with function body.

@@ -6,11 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bylnqxc2l4ukx" path="res://background/MainMenuBackground/background_layer_2.png" id="4_li13n"]
 [ext_resource type="Texture2D" uid="uid://ccfh3yvargxeq" path="res://player/Knight/Idle-export.png" id="4_tywbu"]
 [ext_resource type="Texture2D" uid="uid://dyupau52ockp3" path="res://background/MainMenuBackground/background_layer_3.png" id="5_hxv22"]
+[ext_resource type="Texture2D" uid="uid://stuu354lbsox" path="res://player/Archer/ArcherNoOutline.png" id="7_t44mm"]
+[ext_resource type="Texture2D" uid="uid://jppwky10kjtu" path="res://player/Archer/ArcherOutline.png" id="8_nv0yl"]
 [ext_resource type="Theme" uid="uid://c6gu8naksfhex" path="res://Font/Crang.tres" id="10_qwrlc"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3qf2"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a6yk6"]
 
 [node name="Start_Page" type="Control"]
 layout_mode = 3
@@ -77,14 +75,14 @@ stretch_mode = 0
 
 [node name="btn_SpaceWoman_Character" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 109.0
-texture_normal = SubResource("CompressedTexture2D_o3qf2")
-texture_pressed = SubResource("CompressedTexture2D_a6yk6")
-texture_hover = SubResource("CompressedTexture2D_a6yk6")
-texture_focused = SubResource("CompressedTexture2D_a6yk6")
+offset_left = 111.0
+offset_top = 6.0
+offset_right = 180.0
+offset_bottom = 107.0
+texture_normal = ExtResource("7_t44mm")
+texture_pressed = ExtResource("8_nv0yl")
+texture_hover = ExtResource("8_nv0yl")
+texture_focused = ExtResource("8_nv0yl")
 stretch_mode = 0
 
 [node name="TextEdit" type="TextEdit" parent="."]
