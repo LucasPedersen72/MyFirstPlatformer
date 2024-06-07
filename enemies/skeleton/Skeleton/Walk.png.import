@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu0dox0alp7uy"
-path="res://.godot/imported/Death.png-917052a04441db383b3afee914235f85.ctex"
+uid="uid://d3cpqd63xpowd"
+path="res://.godot/imported/Walk.png-a36ed4842afc6b89a7c53cc130459be6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Monsters_Creatures_Fantasy/Skeleton/Death.png"
-dest_files=["res://.godot/imported/Death.png-917052a04441db383b3afee914235f85.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-a36ed4842afc6b89a7c53cc130459be6.ctex"]
 
 [params]
 

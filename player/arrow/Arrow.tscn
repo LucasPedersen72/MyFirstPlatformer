@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dltvwitpekoer"]
+[gd_scene load_steps=6 format=3 uid="uid://dltvwitpekoer"]
 
 [ext_resource type="Texture2D" uid="uid://dwtamcbbma2oc" path="res://player/arrow/green arrow.png" id="1_srh58"]
 [ext_resource type="Script" path="res://player/arrow/Arrow_Script.gd" id="2_vso3v"]
@@ -18,6 +18,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ww4k"]
+radius = 6.32456
+
 [node name="Fire_Ball" type="AnimatedSprite2D"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_1tkta")
@@ -31,4 +34,14 @@ wait_time = 0.9
 one_shot = true
 autostart = true
 
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(26, -2)
+shape = SubResource("CircleShape2D_6ww4k")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

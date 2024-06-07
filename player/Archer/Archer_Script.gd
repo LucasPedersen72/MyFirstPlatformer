@@ -17,11 +17,15 @@ const ARROW = preload("res://player/arrow/Arrow.tscn")
 @export var JUMP_HORIZONTAL : int = 1000
 @export var MAX_JUMP_HORIZONTAL_SPEED : int = 300
 
+var damage : int
+
 enum State { Idle, Running, Jumping, Shooting }
 
 var current_state : State
 var muzzle_position
 var facing_right : bool
+
+
 
 func _ready():
 	current_state = State.Idle
@@ -31,7 +35,7 @@ func _ready():
 
 func _physics_process(delta : float):
 	player_falling(delta)
-	player_idle(delta)
+	player_idle()
 	player_run(delta)
 	player_jump(delta)
 	
@@ -52,10 +56,10 @@ func player_falling(delta : float):
 		velocity.y += GRAVITY * delta
 		
 		
-func player_idle(delta : float):
+func player_idle():
 	if is_on_floor() && current_state != State.Shooting:
 		current_state = State.Idle
-	#print("state: ", State.keys()[current_state])
+	#print("state: ", State.keys()[current_state])§
 		
 func player_run(delta : float):
 	if !is_on_floor():
@@ -93,9 +97,9 @@ func player_jump(delta : float):
 		velocity.x += direction * JUMP_HORIZONTAL * delta
 		velocity.x = clamp(velocity.x, -MAX_JUMP_HORIZONTAL_SPEED, MAX_JUMP_HORIZONTAL_SPEED)
 
-func player_shooting(delta : float):
+func player_shooting(_delta : float):
 	var direction = input_movement()
-	var Arrow_instance = ARROW.instantiate() as Node2D
+	var Arrow_instance = ARROW.instantiate() as AnimatedSprite2D
 	if Input.is_action_just_pressed("attack"):
 		Arrow_instance.direction = direction
 		Arrow_instance.global_position = muzzle.global_position
@@ -103,6 +107,8 @@ func player_shooting(delta : float):
 		current_state = State.Shooting
 		animated_sprite_2d.play("Run_shoot")
 		
+		if facing_right != true:
+			Arrow_instance.flip_h = true
 	
 	if direction == 0 && Input.is_action_just_pressed("attack") && facing_right == true:
 		Arrow_instance.direction = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcvahug6ibvn7"
-path="res://.godot/imported/Idle.png-5900defd1758422076084493808b4b99.ctex"
+uid="uid://dri0qunx7ivlc"
+path="res://.godot/imported/hangingskell.png-ed417a8254ef8699244b835c8c62a39b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-5900defd1758422076084493808b4b99.ctex"]
+source_file="res://enemies/skeleton/Skeleton/hangingskell.png"
+dest_files=["res://.godot/imported/hangingskell.png-ed417a8254ef8699244b835c8c62a39b.ctex"]
 
 [params]
 

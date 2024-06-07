@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by4ghua870j2"
-path="res://.godot/imported/Charge.png-4cb391c28defe76cb94f0206c59584e4.ctex"
+uid="uid://ri80led3wpsd"
+path="res://.godot/imported/Take Hit.png-3e65a53dbed7f717b6a84aaad880cd8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Charge.png"
-dest_files=["res://.godot/imported/Charge.png-4cb391c28defe76cb94f0206c59584e4.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Take Hit.png"
+dest_files=["res://.godot/imported/Take Hit.png-3e65a53dbed7f717b6a84aaad880cd8d.ctex"]
 
 [params]
 

@@ -361,4 +361,3 @@ theme = SubResource("Theme_pva6k")
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="dialogue_finsished" from="Dialogue" to="." method="_on_dialogue_dialogue_finsished"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0nw2wqn65tbh"
-path="res://.godot/imported/Fireball.png-967d13c01da67cfc8f53dca13c875ba1.ctex"
+uid="uid://cu0dox0alp7uy"
+path="res://.godot/imported/Death.png-79591247fe0d69cfdab0cce5544f2d40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Fireball.png"
-dest_files=["res://.godot/imported/Fireball.png-967d13c01da67cfc8f53dca13c875ba1.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Death.png"
+dest_files=["res://.godot/imported/Death.png-79591247fe0d69cfdab0cce5544f2d40.ctex"]
 
 [params]
 

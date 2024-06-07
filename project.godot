@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mitt Episka Plattformsspel"
-run/main_scene="res://UI/start_page.tscn"
+run/main_scene="res://Levels/TheCave/TheCave.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -80,6 +80,7 @@ interact={
 2d_physics/layer_3="NPC"
 2d_physics/layer_4="DETECTION_AREA"
 2d_physics/layer_5="ENEMYAREACOLLISION"
+2d_physics/layer_6="ENEMYBOUNDARY"
 
 [rendering]
 

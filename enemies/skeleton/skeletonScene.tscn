@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=3 uid="uid://d1eg728a0iqxp"]
+
+[ext_resource type="Texture2D" uid="uid://dri0qunx7ivlc" path="res://enemies/skeleton/Skeleton/hangingskell.png" id="1_exyrh"]
+[ext_resource type="Script" path="res://enemies/skeleton/skeletonScript.gd" id="1_fgq1c"]
+[ext_resource type="Texture2D" uid="uid://dry7esxtn2mtj" path="res://enemies/skeleton/Skeleton/Idle.png" id="2_j713w"]
+[ext_resource type="Texture2D" uid="uid://cu0dox0alp7uy" path="res://enemies/skeleton/Skeleton/Death.png" id="2_wa84g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdgqi"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w72p"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys4ra"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmgpb"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdun"]
+atlas = ExtResource("2_j713w")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpmhb"]
+atlas = ExtResource("2_j713w")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aykhg"]
+atlas = ExtResource("2_j713w")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jga0w"]
+atlas = ExtResource("2_j713w")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kip1"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5lao"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2848"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m14jy"]
+atlas = ExtResource("2_wa84g")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjcea"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_fdgqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w72p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys4ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmgpb")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_exyrh")
+}],
+"loop": true,
+"name": &"hanging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpmhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aykhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jga0w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kip1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5lao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2848")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m14jy")
+}],
+"loop": false,
+"name": &"resurrection",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpbgq"]
+size = Vector2(26, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy84p"]
+size = Vector2(27.5, 50)
+
+[node name="SkeletonScene" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_fgq1c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pjcea")
+animation = &"resurrection"
+autoplay = "hanging"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.19209e-07, 5.96046e-08)
+shape = SubResource("RectangleShape2D_cpbgq")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-1.19209e-06, 2.38419e-06)
+shape = SubResource("RectangleShape2D_xy84p")
+debug_color = Color(0.951543, 0.190632, 0.292418, 0.42)
+
+[node name="resurrection_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="resurrection_timer" to="." method="_on_resurrection_timer_timeout"]

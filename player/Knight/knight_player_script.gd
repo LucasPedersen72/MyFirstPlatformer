@@ -18,8 +18,8 @@ extends CharacterBody2D
 @export var MAX_JUMP_HORIZONTAL_SPEED : int = 300
 
 enum State { Idle, Running, Jumping, Attacking, Falling }
-
 var current_state : State
+
 var facing_right : bool
 
 

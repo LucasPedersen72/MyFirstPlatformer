@@ -40,6 +40,8 @@ func _ready():
 	else:
 		print("No patrol Points")
 	
+	
+	
 	timer.wait_time = wait_time
 	timer.start()
 	current_state = State.Idle
@@ -51,14 +53,18 @@ func _physics_process(delta : float):
 	enemy_idle(delta)
 	enemy_walk(delta)
 	
+	if player_in_chat_zone == true:
+		GameManager.talking_npc = "girl"
+		
 	if Input.is_action_just_pressed("interact") && player_in_chat_zone == true && is_chatting == false:
 		print("Is chatting")
+		GameManager.talking_npc = "girl"
 		can_walk = false
 		is_chatting = true
 		current_state = State.Idle
 		timer.stop()
 		$Dialogue.start()
-		GameManager.talking_npc = "girl"
+		
 		
 	move_and_slide()
 	

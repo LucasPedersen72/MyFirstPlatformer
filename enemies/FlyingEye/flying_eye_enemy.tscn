@@ -201,8 +201,9 @@ animations = [{
 radius = 17.0
 
 [node name="FlyingEyeEnemy" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
 collision_layer = 16
-collision_mask = 16
+collision_mask = 48
 script = ExtResource("1_41883")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfe6v0a2s8rbq"
-path="res://.godot/imported/Flame_jet.png-6cb59a42f21b71eb2eda8be0a70fe5e8.ctex"
+uid="uid://dckb5eokhg44p"
+path="res://.godot/imported/Attack.png-0f3e07b980b90742010ee4e90822b799.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Flame_jet.png"
-dest_files=["res://.godot/imported/Flame_jet.png-6cb59a42f21b71eb2eda8be0a70fe5e8.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Attack.png"
+dest_files=["res://.godot/imported/Attack.png-0f3e07b980b90742010ee4e90822b799.ctex"]
 
 [params]
 

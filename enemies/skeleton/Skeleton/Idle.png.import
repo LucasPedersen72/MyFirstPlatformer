@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bftuwt7ks1kjy"
-path="res://.godot/imported/Dead.png-5c6f5a79b9d2b5a51367f4b705f8416b.ctex"
+uid="uid://dry7esxtn2mtj"
+path="res://.godot/imported/Idle.png-1492f7b2ac2b43a1abfaf34ba5e0104b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Dead.png"
-dest_files=["res://.godot/imported/Dead.png-5c6f5a79b9d2b5a51367f4b705f8416b.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-1492f7b2ac2b43a1abfaf34ba5e0104b.ctex"]
 
 [params]
 

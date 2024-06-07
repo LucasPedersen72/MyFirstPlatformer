@@ -6,8 +6,11 @@ var direction : Vector2
 var is_enemy_in_chase : bool
 var player: CharacterBody2D
 
+var health : int
+
 func _ready():
-	is_enemy_in_chase = true
+	is_enemy_in_chase = false
+	health = 100
 	
 func _process(delta):
 	move(delta)

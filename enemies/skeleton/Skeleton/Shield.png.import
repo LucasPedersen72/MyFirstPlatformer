@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dry7esxtn2mtj"
-path="res://.godot/imported/Idle.png-8fc772988d979c314b1e3075d04e0e41.ctex"
+uid="uid://dljjsd7k301rt"
+path="res://.godot/imported/Shield.png-7e01c316a87c48a42a8b575bbb60a63a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/Monsters_Creatures_Fantasy/Skeleton/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-8fc772988d979c314b1e3075d04e0e41.ctex"]
+source_file="res://enemies/skeleton/Skeleton/Shield.png"
+dest_files=["res://.godot/imported/Shield.png-7e01c316a87c48a42a8b575bbb60a63a.ctex"]
 
 [params]
 

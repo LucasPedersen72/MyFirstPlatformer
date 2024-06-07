@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://0gnutj84tbb3"]
+[gd_scene load_steps=31 format=3 uid="uid://0gnutj84tbb3"]
 
 [ext_resource type="Script" path="res://Levels/TheCity/TheCity.gd" id="1_hwgcj"]
 [ext_resource type="PackedScene" uid="uid://gx62f4tv21w2" path="res://background/ForrestBackground.tscn" id="1_xirwi"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://d0g8ha2ln04ii" path="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="9_3n0bm"]
 [ext_resource type="Texture2D" uid="uid://007out516pdi" path="res://Pixel Art Platformer - Village Props v2.3.0/Texture/TX Village Props.png" id="10_27qi6"]
 [ext_resource type="PackedScene" uid="uid://db01i7232r6tf" path="res://npc/Girl Npc/girl_npc.tscn" id="10_mhgmk"]
-[ext_resource type="PackedScene" uid="uid://oibij8om4i1i" path="res://enemies/FlyingEye/flying_eye_enemy.tscn" id="13_q5rw1"]
 [ext_resource type="Theme" uid="uid://c6gu8naksfhex" path="res://Font/Crang.tres" id="14_6b627"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_236ih"]
@@ -7761,9 +7760,6 @@ position = Vector2(-44.2857, 25.7143)
 position = Vector2(51.4286, 25.7143)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
-[node name="FlyingEyeEnemy" parent="." instance=ExtResource("13_q5rw1")]
-position = Vector2(120, -165)
 
 [node name="TheForrest" type="RichTextLabel" parent="."]
 offset_left = 1926.0

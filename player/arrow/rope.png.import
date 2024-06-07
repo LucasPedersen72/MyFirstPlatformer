@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x5xbebhmg3ol"
-path="res://.godot/imported/Walk.png-287e06c39f2c251d538b2fb4d29027a4.ctex"
+uid="uid://53smce0jmdc2"
+path="res://.godot/imported/rope.png-ed7a842d88bd055a2972e9620a3ee842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/Archer/Fire vizard/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-287e06c39f2c251d538b2fb4d29027a4.ctex"]
+source_file="res://player/arrow/rope.png"
+dest_files=["res://.godot/imported/rope.png-ed7a842d88bd055a2972e9620a3ee842.ctex"]
 
 [params]
 
