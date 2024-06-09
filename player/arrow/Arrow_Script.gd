@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends CharacterBody2D
 @onready var arrow = $"."
 
 var bullet_speed : int = 500
@@ -19,9 +19,9 @@ func _on_timer_timeout():
 
 func _on_hitbox_area_entered(area):
 	print("Bullet area entered")
-	
+	self.queue_free()
 
 func _on_hitbox_body_entered(body):
 	print("Bullet body entered")
 	self.queue_free()
-	
+	bullet_speed = 0

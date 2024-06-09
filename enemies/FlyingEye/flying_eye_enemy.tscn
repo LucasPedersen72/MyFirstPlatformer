@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://oibij8om4i1i"]
+[gd_scene load_steps=33 format=3 uid="uid://oibij8om4i1i"]
 
 [ext_resource type="Script" path="res://enemies/FlyingEye/FlyingEyeEnemy.gd" id="1_41883"]
 [ext_resource type="Texture2D" uid="uid://w2wmyxvn8yaj" path="res://enemies/FlyingEye/Flying eye/Attack.png" id="2_ivh27"]
@@ -200,7 +200,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_wtoyo"]
 radius = 17.0
 
-[node name="FlyingEyeEnemy" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2f5s"]
+radius = 22.5
+
+[node name="FlyingEyeEnemy" type="CharacterBody2D" groups=["ENEMY"]]
 scale = Vector2(0.8, 0.8)
 collision_layer = 16
 collision_mask = 48
@@ -217,4 +220,14 @@ shape = SubResource("CircleShape2D_wtoyo")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 114
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1.25, 0)
+shape = SubResource("CircleShape2D_j2f5s")
+debug_color = Color(0.921157, 0.200782, 0.494826, 0.42)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

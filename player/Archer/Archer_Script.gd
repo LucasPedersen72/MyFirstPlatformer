@@ -1,8 +1,9 @@
 extends CharacterBody2D
-
+const DEATH_SCREEN = preload("res://UI/death_screen.tscn")
 const ARROW = preload("res://player/arrow/Arrow.tscn")
 @onready var timer = $Timer
 @onready var collision_shape_2d = $CollisionShape2D
+
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var muzzle : Marker2D = $Muzzle
@@ -25,7 +26,7 @@ var current_state : State
 var muzzle_position
 var facing_right : bool
 
-
+var is_dead : bool
 
 func _ready():
 	current_state = State.Idle
@@ -46,6 +47,16 @@ func _physics_process(delta : float):
 	move_and_slide()
 	
 	player_animations()
+	
+	if Input.is_action_just_pressed("dodge"):
+		if facing_right == true:
+			self.position.x += 50
+			
+		elif facing_right == false:
+			self.position.x -= 50
+			
+	if HealthManager.current_health == 0 and !is_dead:
+		death()
 	
 func input_movement():
 	var direction : float = Input.get_axis("move_left", "move_right")
@@ -80,10 +91,8 @@ func player_run(delta : float):
 		animated_sprite_2d.flip_h = false if direction > 0 else true
 		
 	if animated_sprite_2d.flip_h == true:
-		collision_shape_2d.position.x = 16
 		facing_right = false
 	else:
-		collision_shape_2d.position.x = 0
 		facing_right = true
 
 func player_jump(delta : float):
@@ -97,9 +106,9 @@ func player_jump(delta : float):
 		velocity.x += direction * JUMP_HORIZONTAL * delta
 		velocity.x = clamp(velocity.x, -MAX_JUMP_HORIZONTAL_SPEED, MAX_JUMP_HORIZONTAL_SPEED)
 
-func player_shooting(_delta : float):
+func player_shooting(delta : float):
 	var direction = input_movement()
-	var Arrow_instance = ARROW.instantiate() as AnimatedSprite2D
+	var Arrow_instance = ARROW.instantiate() as CharacterBody2D
 	if Input.is_action_just_pressed("attack"):
 		Arrow_instance.direction = direction
 		Arrow_instance.global_position = muzzle.global_position
@@ -107,8 +116,7 @@ func player_shooting(_delta : float):
 		current_state = State.Shooting
 		animated_sprite_2d.play("Run_shoot")
 		
-		if facing_right != true:
-			Arrow_instance.flip_h = true
+		
 	
 	if direction == 0 && Input.is_action_just_pressed("attack") && facing_right == true:
 		Arrow_instance.direction = 1
@@ -145,7 +153,14 @@ func player_animations():
 		animated_sprite_2d.play("Jumping")
 		
 func death():
-	
+	var death_screen_instance = DEATH_SCREEN.instantiate()
+	get_tree().root.add_child(death_screen_instance)
+	is_dead = true
+	#get_tree().paused = true
 	pass
 
 
+func _on_hurtbox_body_entered(body : Node2D):
+	if body.is_in_group("ENEMY"):
+		print("AOWWWW", body.damage_amount)
+		HealthManager.decrease_health(body.damage_amount)

@@ -18,12 +18,12 @@ func _ready():
 		Character2.global_position = Vector2(100, -100)
 		pass
 	
-	
 	if GameManager.character_id == null:
 		var Character2 = ARCHER.instantiate()
 		add_child(Character2)
 		Character2.global_position = Vector2(100, -100)
-
+		
+	HealthManager.current_health = HealthManager.max_health
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("interact") and inside_teleporter == true:
@@ -33,3 +33,8 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("PLAYER"):
 		inside_teleporter = true
+
+
+func _on_area_2d_2_body_entered(body):
+	if body.is_in_group("PLAYER"):
+		get_tree().reload_current_scene()

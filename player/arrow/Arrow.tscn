@@ -1,47 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://dltvwitpekoer"]
+[gd_scene load_steps=5 format=3 uid="uid://dltvwitpekoer"]
 
 [ext_resource type="Texture2D" uid="uid://dwtamcbbma2oc" path="res://player/arrow/green arrow.png" id="1_srh58"]
 [ext_resource type="Script" path="res://player/arrow/Arrow_Script.gd" id="2_vso3v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vi6i"]
-atlas = ExtResource("1_srh58")
-region = Rect2(0, 0, 64, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_imepp"]
+radius = 8.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1tkta"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0vi6i")
-}],
-"loop": true,
-"name": &"shot",
-"speed": 10.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7awu"]
+size = Vector2(26, 4)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6ww4k"]
-radius = 6.32456
-
-[node name="Fire_Ball" type="AnimatedSprite2D"]
+[node name="Arrow" type="CharacterBody2D" groups=["PROJECTILE"]]
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_1tkta")
-animation = &"shot"
-autoplay = "shot"
-frame_progress = 0.04265
+collision_layer = 64
+collision_mask = 17
 script = ExtResource("2_vso3v")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_srh58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(26, -2)
+shape = SubResource("CircleShape2D_imepp")
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.9
+wait_time = 0.4
 one_shot = true
 autostart = true
 
-[node name="hitbox" type="Area2D" parent="."]
-collision_layer = 2
+[node name="Area2D" type="Area2D" parent="." groups=["PROJECTILE"]]
+collision_layer = 65
 collision_mask = 17
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(26, -2)
-shape = SubResource("CircleShape2D_6ww4k")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(18, -2)
+shape = SubResource("RectangleShape2D_p7awu")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

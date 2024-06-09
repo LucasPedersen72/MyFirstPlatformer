@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0rkh3rf83xh5"]
+[gd_scene load_steps=13 format=3 uid="uid://d0rkh3rf83xh5"]
 
 [ext_resource type="Script" path="res://Levels/Spawn_Island/spawn_island.gd" id="1_2gw5v"]
 [ext_resource type="PackedScene" uid="uid://cc2la8patlw4r" path="res://background/parallax_background.tscn" id="2_o0bmp"]
@@ -650,6 +650,9 @@ sources/6 = SubResource("TileSetAtlasSource_e5uq8")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2ywm"]
 size = Vector2(43, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tda42"]
+size = Vector2(1330, 20)
+
 [node name="Spawn_Island" type="Node2D"]
 script = ExtResource("1_2gw5v")
 
@@ -695,4 +698,12 @@ collision_mask = 2
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_m2ywm")
 
+[node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(478, 138)
+shape = SubResource("RectangleShape2D_tda42")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

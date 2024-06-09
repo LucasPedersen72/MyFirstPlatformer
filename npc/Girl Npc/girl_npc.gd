@@ -30,6 +30,7 @@ var player
 var player_in_chat_zone : bool
 var is_chatting : bool
 
+
 #Detta är allt som ska hönda när scenen laddas in. 
 func _ready():
 	if patrol_points != null:

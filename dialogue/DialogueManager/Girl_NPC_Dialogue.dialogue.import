@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://calm10wgmueqf"
+path="res://.godot/imported/Girl_NPC_Dialogue.dialogue-f8ed08b7786017d0601afcc4e237cbb1.tres"
+
+[deps]
+
+source_file="res://dialogue/DialogueManager/Girl_NPC_Dialogue.dialogue"
+dest_files=["res://.godot/imported/Girl_NPC_Dialogue.dialogue-f8ed08b7786017d0601afcc4e237cbb1.tres"]
+
+[params]
+
+defaults=true

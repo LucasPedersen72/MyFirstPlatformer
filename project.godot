@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Mitt Episka Plattformsspel"
-run/main_scene="res://Levels/TheCave/TheCave.tscn"
+run/main_scene="res://UI/Start_screen/start_page.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://Scripts/game_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+HealthManager="*res://Scripts/health_manager.gd"
 
 [display]
 
@@ -38,7 +40,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [input]
 
@@ -69,6 +71,15 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 ]
 }
+dodge={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://dialogue/DialogueManager/DialogueTest.dialogue", "res://dialogue/DialogueManager/Girl_NPC_Dialogue.dialogue")
 
 [layer_names]
 
@@ -79,8 +90,9 @@ interact={
 2d_physics/layer_2="PLAYER"
 2d_physics/layer_3="NPC"
 2d_physics/layer_4="DETECTION_AREA"
-2d_physics/layer_5="ENEMYAREACOLLISION"
+2d_physics/layer_5="ENEMY"
 2d_physics/layer_6="ENEMYBOUNDARY"
+2d_physics/layer_7="PROJECTILE"
 
 [rendering]
 

@@ -1,0 +1,24 @@
+~ Girl_NPC
+
+Girl: [[Hi|Hello|Howdy]] there traveller!.
+Girl: Are you here to meet the blacksmith perchanse?
+- Yes!
+	You: Actually, yes I am. Do you know where he is?
+- No!
+	You: This player is dumb but yes I am. Do you know where he is?
+- Find You Own Way => END
+
+Girl: Ofcourse I know where he, he's my father
+You: Oh, okay. Can i have some directions maybe?
+Girl: Go down the road to the right over all the dangerous gaps between the islands.
+Girl: You will then smell the beautiful scent of melted iron. That's my fathers forge!
+Girl: If you don't, then he is probably out hunting again. HE ALWAYS IS!!
+Girl: Sorry, it's just that he is never home anymore since mother died. Guess he finds peace in hunting.
+Girl: If he's not there then hop in those portals on the right side of the camp. You'll understand what to do there. 
+You: Okay, thank you ms ... whats you name?
+Girl: It's Blanchette and you're welcome sir..?
+You: Isolderick is my name. Have a frolic day ms Blanchette
+Girl: Same goes to you Isolderick
+Girl: Oh and by the way. The big purple capsule thingy is a respawn point. So if you happend to experience a tragic accident, don't worry. You'll be back in no time!
+
+=> END

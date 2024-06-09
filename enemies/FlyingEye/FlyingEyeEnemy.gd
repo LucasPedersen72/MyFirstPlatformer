@@ -6,11 +6,15 @@ var direction : Vector2
 var is_enemy_in_chase : bool
 var player: CharacterBody2D
 
-var health : int
+var health : int = 100
+var damage_amount : int = 1
+
+enum state {dead, alive}
+var current_state 
 
 func _ready():
 	is_enemy_in_chase = false
-	health = 100
+	current_state = state.alive
 	
 func _process(delta):
 	move(delta)
@@ -45,3 +49,15 @@ func animations():
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+
+func _on_hurt_box_body_entered(body):
+	print(body.get_groups())
+	if current_state == state.alive and body.is_in_group("PROJECTILE"):
+		health -= GameManager.arrow_damage
+		
+	if health <= 0:
+		death()
+
+func death():
+	self.queue_free()

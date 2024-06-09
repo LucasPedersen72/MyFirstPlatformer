@@ -3,6 +3,7 @@ extends CharacterBody2D
 var speed = 300.0
 var direction = Vector2.RIGHT
 @export var GRAVITY : int = 1000
+@export var damage_amount : int = 1
 
 var is_enemy_in_chase : bool
 
@@ -19,8 +20,6 @@ func _ready():
 	GameManager.arrow_damage = 25
 
 func _physics_process(delta):
-	var velocity = direction * speed * delta
-	
 	idle()
 	falling(delta)
 	move_and_slide()
@@ -58,9 +57,6 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 	
-func _take_damage(body):
-	if body.is_in_group("PROJECTILE"):
-		pass
 
 func _on_skeleton_trap_entered(body, extra_arg_0):
 	if body.is_in_group("PLAYER"):
@@ -77,10 +73,11 @@ func make_skeleton_fall(group_name):
 			skeletons.current_state = State.falling
 
 func _on_hurtbox_area_entered(area):
-	if current_state != State.dead and current_state != State.resurrecting:
+	if current_state != State.dead:
 		health -= GameManager.arrow_damage
 		if health <= 0:
 			death()
+		
 	
 func death():
 	# Play death animation and change state
@@ -89,27 +86,15 @@ func death():
 	current_state = State.dead
 	# Disable the collision shape
 	$hurtbox/CollisionShape2D.disabled = true
-	# Start the resurrection timer
-	$resurrection_timer.start()
+	$DeathTimer.start()
 
-func _on_resurrection_timer_timeout():
-	# Play resurrection animation
-	var animated_sprite = $AnimatedSprite2D
-	animated_sprite.play("resurrection")
-	current_state = State.resurrecting
-	
-	# Wait until the resurrection animation is finished before enabling collision and setting state to Idle
-	animated_sprite.connect("animation_finished", Callable(self, "_on_resurrection_animation_finished"))
-
-func _on_resurrection_animation_finished(anim_name):
-	if anim_name == "resurrection":
-		current_state = State.Idle
-		$hurtbox/CollisionShape2D.disabled = false
-		var animated_sprite = $AnimatedSprite2D
-		animated_sprite.play("idle")
 
 # Update the idle function to respect the new states
 func _process(delta):
 	if is_on_floor() and current_state == State.Idle:
 		var animated_sprite = $AnimatedSprite2D
 		animated_sprite.play("idle")
+
+
+func _on_death_timer_timeout():
+	self.queue_free()

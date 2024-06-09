@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://tdns6ojp06ks"]
+[gd_scene load_steps=35 format=3 uid="uid://tdns6ojp06ks"]
 
 [ext_resource type="Script" path="res://player/Archer/Archer_Script.gd" id="1_b4nce"]
 [ext_resource type="Texture2D" uid="uid://c5xsjhpgtom50" path="res://player/Archer/Final/Idle and running.png" id="2_5x4s1"]
 [ext_resource type="Texture2D" uid="uid://b186mm56bkqyv" path="res://player/Archer/Final/Jumping.png" id="3_tgb14"]
 [ext_resource type="Texture2D" uid="uid://bv8bi5crna4q7" path="res://player/Archer/Final/Normal Attack.png" id="4_a5wcf"]
+[ext_resource type="PackedScene" uid="uid://cww7bsv2xnu5k" path="res://UI/health_bar/health_bar.tscn" id="5_2hlsq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1t2a"]
 atlas = ExtResource("2_5x4s1")
@@ -211,8 +212,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykjb7"]
-radius = 6.5
-height = 37.0
+radius = 7.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b8ory"]
+radius = 8.0
+height = 38.0
 
 [node name="Archer" type="CharacterBody2D" groups=["PLAYER"]]
 texture_filter = 1
@@ -230,18 +235,32 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["PLAYER"]]
-position = Vector2(0.5, -18.5)
+position = Vector2(0, -19)
 shape = SubResource("CapsuleShape2D_ykjb7")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(20, -27)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, -21)
+position = Vector2(0, -47)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_b8ory")
+debug_color = Color(0.917878, 0.208416, 0.495078, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("5_2hlsq")]
+position = Vector2(-14, -49)
+scale = Vector2(0.6, 0.6)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

@@ -1,5 +1,7 @@
 extends Control
 
+@export_file("*.json") var dialogue_file
+
 signal dialogue_finished
 
 var dialogue = []
@@ -16,44 +18,42 @@ func start():
 	$DialogueBackground.visible = true
 	dialogue_active = true
 	dialogue = load_dialogue()
+	print("Loaded dialogue: ", dialogue)
 	current_dialogue_id = -1
 	next_script()
 
 func load_dialogue():
-	var content = {}
-
-	match GameManager.talking_npc:
-		"girl":
-			content = read_json("res://dialogue/girl_npc_dialogue.json")
-		"floating_wizard":
-			content = read_json("res://dialogue/floating_wizard_dialogue.json")
-		_:
-			print("No matching NPC found.")
-			return []
-
+	var npc = GameManager.talking_npc
+	var file_path = "res://dialogue/%s_npc_dialogue.json" % npc
+	print("Loading dialogue from: ", file_path)
+	var content = read_json(file_path)
+	
 	if content.error != OK:
-		print("Failed to load dialogue: ", content.error)
+		print("Error loading dialogue: ", content.error)
 		return []
 
+	print("Loaded dialogue content: ", content.result)
 	return content.result
 
 func read_json(file_path):
 	var file = FileAccess.open(file_path, FileAccess.READ)
-	if not file:
+	if file.error != OK:
 		print("Failed to open file: ", file_path)
-		return { "error": ERR_CANT_OPEN, "result": [] }
+		return { "error": file.error, "result": [] }
 
 	var content_text = file.get_as_text()
 	file.close()
+	print("Content text: ", content_text)
 
 	var json = JSON.new()
-	var result = json.parse(content_text)
+	var content = json.parse(content_text)
 
-	if result.error != OK:
-		print("Failed to parse JSON: ", result.error)
-		return { "error": result.error, "result": [] }
+	if content.error != OK:
+		print("Failed to parse JSON: ", content.error)
+		return { "error": content.error, "result": [] }
 
-	return { "error": OK, "result": result.result }
+	print("Parsed content: ", content.result)
+	return { "error": OK, "result": content.result }
 
 func _input(event):
 	if not dialogue_active:
@@ -73,7 +73,12 @@ func next_script():
 	var text_label = $DialogueBackground.get_node("TextLabel")
 
 	if name_label and text_label:
-		name_label.text = dialogue[current_dialogue_id].get('name', '')
-		text_label.text = dialogue[current_dialogue_id].get('text', '')
+		var current_dialogue = dialogue[current_dialogue_id]
+		print("Current dialogue: ", current_dialogue)
+		if current_dialogue.has("name") and current_dialogue.has("text"):
+			name_label.text = current_dialogue['name']
+			text_label.text = current_dialogue['text']
+		else:
+			print("Dialogue entry missing 'name' or 'text': ", current_dialogue)
 	else:
 		print("NameLabel or TextLabel node not found")

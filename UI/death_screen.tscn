@@ -1,0 +1,109 @@
+[gd_scene load_steps=3 format=3 uid="uid://chkqbn4uw3fo0"]
+
+[ext_resource type="Theme" uid="uid://c6gu8naksfhex" path="res://Font/Crang.tres" id="1_n45nj"]
+[ext_resource type="Script" path="res://UI/death_screen.gd" id="2_gpbnd"]
+
+[node name="CanvasLayer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_n45nj")
+script = ExtResource("2_gpbnd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -103.0
+offset_right = 173.5
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_n45nj")
+
+[node name="Gameover" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.5
+offset_top = 14.0
+offset_right = 54.5
+offset_bottom = 37.0
+grow_horizontal = 2
+text = "GAME OVER"
+
+[node name="YouDied" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -141.5
+offset_top = 35.0
+offset_right = 262.5
+offset_bottom = 132.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+text = "In the shadows of the ancient forest, 
+your soul was claimed by the whispering darkness, 
+leaving only echoes of your journey behind."
+autowrap_mode = 2
+
+[node name="Reload" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = 5.0
+offset_right = 97.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Reload checkpoint
+"
+
+[node name="StartOver" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = 37.5
+offset_right = 61.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Over"
+
+[node name="ExitGame" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 66.5
+offset_right = 50.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit game"
+
+[connection signal="pressed" from="CanvasLayer/Panel/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/StartOver" to="." method="_on_start_over_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/ExitGame" to="." method="_on_exit_game_pressed"]
